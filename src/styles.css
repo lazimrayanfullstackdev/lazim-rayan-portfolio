@@ -62,9 +62,16 @@
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
+  --radius: 0.25rem;
+  --background: oklch(0.16 0.012 60);
+  --foreground: oklch(0.96 0.01 80);
+  --accent-brand: oklch(0.78 0.17 60);
+  --accent-brand-foreground: oklch(0.16 0.012 60);
+  --surface: oklch(0.21 0.014 60);
+  --surface-2: oklch(0.26 0.016 60);
+  --hairline: oklch(0.35 0.02 60 / 50%);
+  --gradient-hero: radial-gradient(ellipse at top right, oklch(0.78 0.17 60 / 0.25), transparent 60%), radial-gradient(ellipse at bottom left, oklch(0.5 0.18 30 / 0.18), transparent 60%);
+  --noise: 0.16 0.012 60;
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.129 0.042 264.695);
   --popover: oklch(1 0 0);
