@@ -182,7 +182,7 @@ function Index() {
             <ContactRow icon={<Mail className="h-4 w-4" />} label="Email" value="lazimrayan@gmail.com" href="mailto:lazimrayan@gmail.com" />
             <ContactRow icon={<Phone className="h-4 w-4" />} label="Phone" value="+880 1855 567530" href="tel:+8801855567530" />
             <ContactRow icon={<Linkedin className="h-4 w-4" />} label="LinkedIn" value="lazim-rayan" href="https://www.linkedin.com/in/lazim-rayan/" />
-            <ContactRow icon={<Facebook className="h-4 w-4" />} label="Facebook" value="refat.rayan.99" href="https://www.facebook.com/refat.rayan.99" />
+            <ContactRow icon={<Facebook className="h-4 w-4" />} label="Facebook" value="LazimRayanRefat" href="https://www.facebook.com/LazimRayanRefat" />
             <ContactRow icon={<MapPin className="h-4 w-4" />} label="Location" value="Middle Badda, Dhaka 1212" />
           </div>
         </div>
