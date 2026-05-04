@@ -191,7 +191,7 @@ function Index() {
       <footer className="border-t border-border">
         <div className="max-w-6xl mx-auto px-6 py-8 flex flex-wrap justify-between gap-4 text-sm text-muted-foreground">
           <span>© {new Date().getFullYear()} Lazim Rayan</span>
-          <span className="font-display italic">Designed with intent.</span>
+          <span className="font-display italic">Passionate for Innovation</span>
         </div>
       </footer>
     </div>
