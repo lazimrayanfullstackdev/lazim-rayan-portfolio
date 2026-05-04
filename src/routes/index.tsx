@@ -84,7 +84,7 @@ function Index() {
             </div>
           </div>
 
-          <div className="relative">
+          <div className="relative mx-auto w-[70%]">
             <div className="absolute -inset-6 rounded-3xl bg-primary/20 blur-3xl" aria-hidden />
             <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-border bg-card">
               <img src={portrait} alt="Portrait of Lazim Rayan" className="h-full w-full object-cover" />
