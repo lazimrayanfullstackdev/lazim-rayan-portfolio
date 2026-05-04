@@ -29,7 +29,7 @@ function Index() {
       {/* Nav */}
       <header className="sticky top-0 z-30 backdrop-blur-md bg-background/60 border-b border-border">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-          <a href="#top" className="font-display text-lg font-semibold tracking-tight">LR<span className="text-primary">.</span></a>
+          <a href="#top" className="font-display text-lg font-semibold tracking-tight">Lazim Rayan<span className="text-primary">.</span></a>
           <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
             <a href="#about" className="hover:text-foreground transition">About</a>
             <a href="#work" className="hover:text-foreground transition">Experience</a>
