@@ -150,3 +150,16 @@
     color: var(--color-foreground);
   }
 }
+
+@layer base {
+  body {
+    font-family: "Inter", system-ui, sans-serif;
+    background-image: var(--gradient-hero);
+    background-attachment: fixed;
+  }
+  .font-display {
+    font-family: "Fraunces", serif;
+    font-optical-sizing: auto;
+    letter-spacing: -0.02em;
+  }
+}
