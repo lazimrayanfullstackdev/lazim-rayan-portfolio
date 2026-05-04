@@ -23,6 +23,17 @@ const experience = [
 
 const skills = ["Meta Ads", "DV360", "LinkedIn Ads", "Programmatic", "Rich Media", "SEO", "Display", "Analytics", "Negotiation", "Team Management"];
 
+const collaborations = [
+  "Social Media Audit",
+  "Digital Promotion Plan",
+  "Digital Promotion Support",
+  "Website Audit",
+  "Website Design",
+  "Website Development",
+  "Search Engine Optimization (AEO)",
+  "Digital Marketing Supervision",
+];
+
 function Index() {
   return (
     <div className="min-h-screen text-foreground">
@@ -34,6 +45,7 @@ function Index() {
             <a href="#about" className="hover:text-foreground transition">About</a>
             <a href="#work" className="hover:text-foreground transition">Experience</a>
             <a href="#skills" className="hover:text-foreground transition">Skills</a>
+            <a href="#collab" className="hover:text-foreground transition">Collaborate</a>
             <a href="#contact" className="hover:text-foreground transition">Contact</a>
           </nav>
           <a
@@ -133,6 +145,25 @@ function Index() {
               {s}
             </span>
           ))}
+        </div>
+      </section>
+
+      {/* Collaboration Opportunities */}
+      <section id="collab" className="max-w-6xl mx-auto px-6 py-20 border-t border-border">
+        <div className="grid md:grid-cols-3 gap-10">
+          <div>
+            <h2 className="font-display text-3xl md:text-4xl">Collaboration<br />Opportunities</h2>
+            <p className="text-muted-foreground mt-4 text-sm max-w-xs">Services I take on for partners and clients.</p>
+          </div>
+          <ol className="md:col-span-2 grid sm:grid-cols-2 gap-px bg-border rounded-2xl overflow-hidden border border-border">
+            {collaborations.map((c, i) => (
+              <li key={c} className="group flex items-center gap-4 bg-background p-5 hover:bg-card/40 transition">
+                <span className="font-mono text-xs text-primary w-6">{String(i + 1).padStart(2, "0")}</span>
+                <span className="text-foreground">{c}</span>
+                <ArrowUpRight className="h-4 w-4 text-muted-foreground ml-auto group-hover:text-primary transition" />
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
 
