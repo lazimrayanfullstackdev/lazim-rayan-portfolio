@@ -355,26 +355,6 @@ function ChannelMix({ data }: { data: { label: string; value: number }[] }) {
         </ul>
       </div>
 
-      {/* Yearly performance bars */}
-      <div className="mt-6 pt-6 border-t border-border">
-        <div className="flex items-center justify-between mb-3">
-          <h4 className="text-sm text-foreground">Campaign performance</h4>
-          <span className="text-xs text-muted-foreground font-mono">ROAS index</span>
-        </div>
-        <div className="flex items-end gap-2 h-24">
-          {[55, 68, 72, 80, 76, 88, 92, 85, 95, 90, 98, 110].map((v, i) => (
-            <div key={i} className="flex-1 flex flex-col items-center gap-1">
-              <div
-                className="w-full rounded-sm bg-primary/80 hover:bg-primary transition"
-                style={{ height: `${(v / 110) * 100}%` }}
-              />
-              <span className="text-[10px] text-muted-foreground font-mono">
-                {["J","F","M","A","M","J","J","A","S","O","N","D"][i]}
-              </span>
-            </div>
-          ))}
-        </div>
-      </div>
     </div>
   );
 }
