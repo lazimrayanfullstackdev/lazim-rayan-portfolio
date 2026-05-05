@@ -299,6 +299,87 @@ function Typewriter({ words, typeSpeed = 80, deleteSpeed = 40, pause = 1400 }: {
   );
 }
 
+function ChannelMix({ data }: { data: { label: string; value: number }[] }) {
+  const total = data.reduce((s, d) => s + d.value, 0);
+  const radius = 70;
+  const circumference = 2 * Math.PI * radius;
+  let offset = 0;
+  const palette = [
+    "oklch(0.78 0.17 60)",
+    "oklch(0.68 0.16 40)",
+    "oklch(0.6 0.14 80)",
+    "oklch(0.55 0.12 30)",
+    "oklch(0.7 0.1 100)",
+    "oklch(0.45 0.06 60)",
+  ];
+
+  return (
+    <div className="rounded-2xl border border-border bg-card/40 p-6">
+      <div className="flex items-center justify-between mb-4">
+        <h3 className="font-display text-xl">Channel mix</h3>
+        <span className="text-xs text-muted-foreground font-mono">last 12 months</span>
+      </div>
+
+      <div className="flex flex-col sm:flex-row items-center gap-6">
+        <svg viewBox="-100 -100 200 200" className="w-44 h-44 -rotate-90">
+          <circle r={radius} fill="none" stroke="var(--border)" strokeWidth="22" />
+          {data.map((d, i) => {
+            const length = (d.value / total) * circumference;
+            const dasharray = `${length} ${circumference - length}`;
+            const seg = (
+              <circle
+                key={d.label}
+                r={radius}
+                fill="none"
+                stroke={palette[i % palette.length]}
+                strokeWidth="22"
+                strokeDasharray={dasharray}
+                strokeDashoffset={-offset}
+              />
+            );
+            offset += length;
+            return seg;
+          })}
+        </svg>
+
+        <ul className="flex-1 space-y-2 w-full">
+          {data.map((d, i) => (
+            <li key={d.label} className="flex items-center gap-3 text-sm">
+              <span
+                className="h-2.5 w-2.5 rounded-full shrink-0"
+                style={{ background: palette[i % palette.length] }}
+              />
+              <span className="text-foreground">{d.label}</span>
+              <span className="ml-auto font-mono text-xs text-muted-foreground">{d.value}%</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* Yearly performance bars */}
+      <div className="mt-6 pt-6 border-t border-border">
+        <div className="flex items-center justify-between mb-3">
+          <h4 className="text-sm text-foreground">Campaign performance</h4>
+          <span className="text-xs text-muted-foreground font-mono">ROAS index</span>
+        </div>
+        <div className="flex items-end gap-2 h-24">
+          {[55, 68, 72, 80, 76, 88, 92, 85, 95, 90, 98, 110].map((v, i) => (
+            <div key={i} className="flex-1 flex flex-col items-center gap-1">
+              <div
+                className="w-full rounded-sm bg-primary/80 hover:bg-primary transition"
+                style={{ height: `${(v / 110) * 100}%` }}
+              />
+              <span className="text-[10px] text-muted-foreground font-mono">
+                {["J","F","M","A","M","J","J","A","S","O","N","D"][i]}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function ContactRow({ icon, label, value, href }: { icon: React.ReactNode; label: string; value: string; href?: string }) {
   const content = (
     <div className="group flex items-center justify-between gap-4 border-t border-border py-5 last:border-b">
