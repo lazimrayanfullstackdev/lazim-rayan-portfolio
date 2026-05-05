@@ -1,7 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import portrait from "@/assets/lazim.png";
-import { Mail, Phone, MapPin, Linkedin, Facebook, Download, ArrowUpRight } from "lucide-react";
+import {
+  Mail, Phone, MapPin, Linkedin, Facebook, Download, ArrowUpRight,
+  Target, Megaphone, Linkedin as LinkedinIcon, Cpu, Sparkles, Search, MonitorSmartphone, BarChart3, Handshake, Users,
+  ClipboardCheck, Rocket, LifeBuoy, FileSearch, Palette, Code2, SearchCheck, Eye,
+} from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
