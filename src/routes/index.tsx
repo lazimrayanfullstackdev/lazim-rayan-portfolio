@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 import portrait from "@/assets/lazim.png";
 import { Mail, Phone, MapPin, Linkedin, Facebook, Download, ArrowUpRight } from "lucide-react";
 
