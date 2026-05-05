@@ -75,9 +75,8 @@ function Index() {
               Associate Manager, Media — building data-driven campaigns across
               Meta, DV360, LinkedIn and programmatic for 6+ years.
             </p>
-            <div className="mt-8 font-display text-xl md:text-2xl leading-snug">
-              <span className="text-foreground">I am Lazim Rayan. </span>
-              <span className="text-muted-foreground">Let's connect for </span>
+            <div className="mt-8 font-display text-2xl md:text-4xl font-bold leading-snug">
+              <span className="text-foreground">Let's connect for </span>
               <Typewriter
                 words={[
                   "Digital Promotion",
