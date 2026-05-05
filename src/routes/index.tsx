@@ -178,13 +178,38 @@ function Index() {
 
       {/* Skills */}
       <section id="skills" className="max-w-6xl mx-auto px-6 py-20 border-t border-border">
-        <h2 className="font-display text-3xl md:text-4xl mb-10">Capabilities</h2>
-        <div className="flex flex-wrap gap-3">
-          {skills.map((s) => (
-            <span key={s} className="rounded-full border border-border bg-card/40 px-4 py-2 text-sm hover:border-primary hover:text-primary transition">
-              {s}
-            </span>
-          ))}
+        <div className="flex items-end justify-between mb-12">
+          <h2 className="font-display text-3xl md:text-4xl">Capabilities</h2>
+          <span className="text-sm text-muted-foreground">Proficiency snapshot</span>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-10">
+          {/* Skill bars */}
+          <ul className="space-y-5">
+            {skills.map((s) => {
+              const Icon = s.icon;
+              return (
+                <li key={s.name}>
+                  <div className="flex items-center justify-between mb-2 text-sm">
+                    <span className="inline-flex items-center gap-2 text-foreground">
+                      <Icon className="h-4 w-4 text-primary" />
+                      {s.name}
+                    </span>
+                    <span className="font-mono text-xs text-muted-foreground">{s.level}%</span>
+                  </div>
+                  <div className="h-2 rounded-full bg-card/60 overflow-hidden border border-border">
+                    <div
+                      className="h-full bg-primary rounded-full transition-all"
+                      style={{ width: `${s.level}%` }}
+                    />
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
+
+          {/* Channel mix chart */}
+          <ChannelMix data={channelMix} />
         </div>
       </section>
 
@@ -196,13 +221,17 @@ function Index() {
             <p className="text-muted-foreground mt-4 text-sm max-w-xs">Services I take on for partners and clients.</p>
           </div>
           <ol className="md:col-span-2 grid sm:grid-cols-2 gap-px bg-border rounded-2xl overflow-hidden border border-border">
-            {collaborations.map((c, i) => (
-              <li key={c} className="group flex items-center gap-4 bg-background p-5 hover:bg-card/40 transition">
-                <span className="font-mono text-xs text-primary w-6">{String(i + 1).padStart(2, "0")}</span>
-                <span className="text-foreground">{c}</span>
-                <ArrowUpRight className="h-4 w-4 text-muted-foreground ml-auto group-hover:text-primary transition" />
-              </li>
-            ))}
+            {collaborations.map((c, i) => {
+              const Icon = c.icon;
+              return (
+                <li key={c.name} className="group flex items-center gap-4 bg-background p-5 hover:bg-card/40 transition">
+                  <span className="font-mono text-xs text-primary w-6">{String(i + 1).padStart(2, "0")}</span>
+                  <Icon className="h-5 w-5 text-primary shrink-0" />
+                  <span className="text-foreground">{c.name}</span>
+                  <ArrowUpRight className="h-4 w-4 text-muted-foreground ml-auto group-hover:text-primary transition" />
+                </li>
+              );
+            })}
           </ol>
         </div>
       </section>
