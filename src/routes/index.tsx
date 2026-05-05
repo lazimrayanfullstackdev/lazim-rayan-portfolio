@@ -220,19 +220,18 @@ function Index() {
             <h2 className="font-display text-3xl md:text-4xl">Collaboration<br />Opportunities</h2>
             <p className="text-muted-foreground mt-4 text-sm max-w-xs">Services I take on for partners and clients.</p>
           </div>
-          <ol className="md:col-span-2 grid sm:grid-cols-2 gap-px bg-border rounded-2xl overflow-hidden border border-border">
-            {collaborations.map((c, i) => {
+          <ul className="md:col-span-2 grid sm:grid-cols-2 gap-px bg-border rounded-2xl overflow-hidden border border-border">
+            {collaborations.map((c) => {
               const Icon = c.icon;
               return (
                 <li key={c.name} className="group flex items-center gap-4 bg-background p-5 hover:bg-card/40 transition">
-                  <span className="font-mono text-xs text-primary w-6">{String(i + 1).padStart(2, "0")}</span>
                   <Icon className="h-5 w-5 text-primary shrink-0" />
                   <span className="text-foreground">{c.name}</span>
                   <ArrowUpRight className="h-4 w-4 text-muted-foreground ml-auto group-hover:text-primary transition" />
                 </li>
               );
             })}
-          </ol>
+          </ul>
         </div>
       </section>
 
