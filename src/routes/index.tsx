@@ -215,6 +215,38 @@ function Index() {
   );
 }
 
+function Typewriter({ words, typeSpeed = 80, deleteSpeed = 40, pause = 1400 }: { words: string[]; typeSpeed?: number; deleteSpeed?: number; pause?: number }) {
+  const [index, setIndex] = useState(0);
+  const [text, setText] = useState("");
+  const [deleting, setDeleting] = useState(false);
+
+  useEffect(() => {
+    const current = words[index % words.length];
+    if (!deleting && text === current) {
+      const t = setTimeout(() => setDeleting(true), pause);
+      return () => clearTimeout(t);
+    }
+    if (deleting && text === "") {
+      setDeleting(false);
+      setIndex((i) => (i + 1) % words.length);
+      return;
+    }
+    const t = setTimeout(() => {
+      setText((prev) =>
+        deleting ? current.slice(0, prev.length - 1) : current.slice(0, prev.length + 1)
+      );
+    }, deleting ? deleteSpeed : typeSpeed);
+    return () => clearTimeout(t);
+  }, [text, deleting, index, words, typeSpeed, deleteSpeed, pause]);
+
+  return (
+    <span className="text-primary italic">
+      {text}
+      <span className="inline-block w-[2px] h-[1em] align-[-0.15em] ml-1 bg-primary animate-caret" />
+    </span>
+  );
+}
+
 function ContactRow({ icon, label, value, href }: { icon: React.ReactNode; label: string; value: string; href?: string }) {
   const content = (
     <div className="group flex items-center justify-between gap-4 border-t border-border py-5 last:border-b">
