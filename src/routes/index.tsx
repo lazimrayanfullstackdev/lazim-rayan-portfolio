@@ -26,17 +26,37 @@ const experience = [
   { role: "Digital Marketing Executive", org: "CareerPaths", period: "2019 — 2020", note: "Lifted leads by 80% and pushed the site to position #2 on SERP." },
 ];
 
-const skills = ["Meta Ads", "DV360", "LinkedIn Ads", "Programmatic", "Rich Media", "SEO", "Display", "Analytics", "Negotiation", "Team Management"];
+const skills: { name: string; level: number; icon: React.ComponentType<{ className?: string }> }[] = [
+  { name: "Meta Ads", level: 95, icon: Target },
+  { name: "DV360", level: 88, icon: Megaphone },
+  { name: "LinkedIn Ads", level: 85, icon: LinkedinIcon },
+  { name: "Programmatic", level: 82, icon: Cpu },
+  { name: "Rich Media", level: 78, icon: Sparkles },
+  { name: "SEO", level: 90, icon: Search },
+  { name: "Display", level: 80, icon: MonitorSmartphone },
+  { name: "Analytics", level: 88, icon: BarChart3 },
+  { name: "Negotiation", level: 84, icon: Handshake },
+  { name: "Team Management", level: 86, icon: Users },
+];
 
-const collaborations = [
-  "Social Media Audit",
-  "Digital Promotion Plan",
-  "Digital Promotion Support",
-  "Website Audit",
-  "Website Design",
-  "Website Development",
-  "Search Engine Optimization (AEO)",
-  "Digital Marketing Supervision",
+const channelMix: { label: string; value: number }[] = [
+  { label: "Meta", value: 32 },
+  { label: "DV360", value: 22 },
+  { label: "LinkedIn", value: 14 },
+  { label: "Programmatic", value: 18 },
+  { label: "SEO", value: 10 },
+  { label: "Other", value: 4 },
+];
+
+const collaborations: { name: string; icon: React.ComponentType<{ className?: string }> }[] = [
+  { name: "Social Media Audit", icon: ClipboardCheck },
+  { name: "Digital Promotion Plan", icon: Rocket },
+  { name: "Digital Promotion Support", icon: LifeBuoy },
+  { name: "Website Audit", icon: FileSearch },
+  { name: "Website Design", icon: Palette },
+  { name: "Website Development", icon: Code2 },
+  { name: "Search Engine Optimization (AEO)", icon: SearchCheck },
+  { name: "Digital Marketing Supervision", icon: Eye },
 ];
 
 function Index() {
