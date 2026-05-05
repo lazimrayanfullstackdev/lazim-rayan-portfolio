@@ -1,7 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import portrait from "@/assets/lazim.png";
-import { Mail, Phone, MapPin, Linkedin, Facebook, Download, ArrowUpRight } from "lucide-react";
+import {
+  Mail, Phone, MapPin, Linkedin, Facebook, Download, ArrowUpRight,
+  Target, Megaphone, Linkedin as LinkedinIcon, Cpu, Sparkles, Search, MonitorSmartphone, BarChart3, Handshake, Users,
+  ClipboardCheck, Rocket, LifeBuoy, FileSearch, Palette, Code2, SearchCheck, Eye,
+} from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -22,17 +26,37 @@ const experience = [
   { role: "Digital Marketing Executive", org: "CareerPaths", period: "2019 — 2020", note: "Lifted leads by 80% and pushed the site to position #2 on SERP." },
 ];
 
-const skills = ["Meta Ads", "DV360", "LinkedIn Ads", "Programmatic", "Rich Media", "SEO", "Display", "Analytics", "Negotiation", "Team Management"];
+const skills: { name: string; level: number; icon: React.ComponentType<{ className?: string }> }[] = [
+  { name: "Meta Ads", level: 95, icon: Target },
+  { name: "DV360", level: 88, icon: Megaphone },
+  { name: "LinkedIn Ads", level: 85, icon: LinkedinIcon },
+  { name: "Programmatic", level: 82, icon: Cpu },
+  { name: "Rich Media", level: 78, icon: Sparkles },
+  { name: "SEO", level: 90, icon: Search },
+  { name: "Display", level: 80, icon: MonitorSmartphone },
+  { name: "Analytics", level: 88, icon: BarChart3 },
+  { name: "Negotiation", level: 84, icon: Handshake },
+  { name: "Team Management", level: 86, icon: Users },
+];
 
-const collaborations = [
-  "Social Media Audit",
-  "Digital Promotion Plan",
-  "Digital Promotion Support",
-  "Website Audit",
-  "Website Design",
-  "Website Development",
-  "Search Engine Optimization (AEO)",
-  "Digital Marketing Supervision",
+const channelMix: { label: string; value: number }[] = [
+  { label: "Meta", value: 32 },
+  { label: "DV360", value: 22 },
+  { label: "LinkedIn", value: 14 },
+  { label: "Programmatic", value: 18 },
+  { label: "SEO", value: 10 },
+  { label: "Other", value: 4 },
+];
+
+const collaborations: { name: string; icon: React.ComponentType<{ className?: string }> }[] = [
+  { name: "Social Media Audit", icon: ClipboardCheck },
+  { name: "Digital Promotion Plan", icon: Rocket },
+  { name: "Digital Promotion Support", icon: LifeBuoy },
+  { name: "Website Audit", icon: FileSearch },
+  { name: "Website Design", icon: Palette },
+  { name: "Website Development", icon: Code2 },
+  { name: "Search Engine Optimization (AEO)", icon: SearchCheck },
+  { name: "Digital Marketing Supervision", icon: Eye },
 ];
 
 function Index() {
@@ -154,13 +178,38 @@ function Index() {
 
       {/* Skills */}
       <section id="skills" className="max-w-6xl mx-auto px-6 py-20 border-t border-border">
-        <h2 className="font-display text-3xl md:text-4xl mb-10">Capabilities</h2>
-        <div className="flex flex-wrap gap-3">
-          {skills.map((s) => (
-            <span key={s} className="rounded-full border border-border bg-card/40 px-4 py-2 text-sm hover:border-primary hover:text-primary transition">
-              {s}
-            </span>
-          ))}
+        <div className="flex items-end justify-between mb-12">
+          <h2 className="font-display text-3xl md:text-4xl">Capabilities</h2>
+          <span className="text-sm text-muted-foreground">Proficiency snapshot</span>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-10">
+          {/* Skill bars */}
+          <ul className="space-y-5">
+            {skills.map((s) => {
+              const Icon = s.icon;
+              return (
+                <li key={s.name}>
+                  <div className="flex items-center justify-between mb-2 text-sm">
+                    <span className="inline-flex items-center gap-2 text-foreground">
+                      <Icon className="h-4 w-4 text-primary" />
+                      {s.name}
+                    </span>
+                    <span className="font-mono text-xs text-muted-foreground">{s.level}%</span>
+                  </div>
+                  <div className="h-2 rounded-full bg-card/60 overflow-hidden border border-border">
+                    <div
+                      className="h-full bg-primary rounded-full transition-all"
+                      style={{ width: `${s.level}%` }}
+                    />
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
+
+          {/* Channel mix chart */}
+          <ChannelMix data={channelMix} />
         </div>
       </section>
 
@@ -172,13 +221,17 @@ function Index() {
             <p className="text-muted-foreground mt-4 text-sm max-w-xs">Services I take on for partners and clients.</p>
           </div>
           <ol className="md:col-span-2 grid sm:grid-cols-2 gap-px bg-border rounded-2xl overflow-hidden border border-border">
-            {collaborations.map((c, i) => (
-              <li key={c} className="group flex items-center gap-4 bg-background p-5 hover:bg-card/40 transition">
-                <span className="font-mono text-xs text-primary w-6">{String(i + 1).padStart(2, "0")}</span>
-                <span className="text-foreground">{c}</span>
-                <ArrowUpRight className="h-4 w-4 text-muted-foreground ml-auto group-hover:text-primary transition" />
-              </li>
-            ))}
+            {collaborations.map((c, i) => {
+              const Icon = c.icon;
+              return (
+                <li key={c.name} className="group flex items-center gap-4 bg-background p-5 hover:bg-card/40 transition">
+                  <span className="font-mono text-xs text-primary w-6">{String(i + 1).padStart(2, "0")}</span>
+                  <Icon className="h-5 w-5 text-primary shrink-0" />
+                  <span className="text-foreground">{c.name}</span>
+                  <ArrowUpRight className="h-4 w-4 text-muted-foreground ml-auto group-hover:text-primary transition" />
+                </li>
+              );
+            })}
           </ol>
         </div>
       </section>
@@ -243,6 +296,87 @@ function Typewriter({ words, typeSpeed = 80, deleteSpeed = 40, pause = 1400 }: {
       {text}
       <span className="inline-block w-[2px] h-[1em] align-[-0.15em] ml-1 bg-primary animate-caret" />
     </span>
+  );
+}
+
+function ChannelMix({ data }: { data: { label: string; value: number }[] }) {
+  const total = data.reduce((s, d) => s + d.value, 0);
+  const radius = 70;
+  const circumference = 2 * Math.PI * radius;
+  let offset = 0;
+  const palette = [
+    "oklch(0.78 0.17 60)",
+    "oklch(0.68 0.16 40)",
+    "oklch(0.6 0.14 80)",
+    "oklch(0.55 0.12 30)",
+    "oklch(0.7 0.1 100)",
+    "oklch(0.45 0.06 60)",
+  ];
+
+  return (
+    <div className="rounded-2xl border border-border bg-card/40 p-6">
+      <div className="flex items-center justify-between mb-4">
+        <h3 className="font-display text-xl">Channel mix</h3>
+        <span className="text-xs text-muted-foreground font-mono">last 12 months</span>
+      </div>
+
+      <div className="flex flex-col sm:flex-row items-center gap-6">
+        <svg viewBox="-100 -100 200 200" className="w-44 h-44 -rotate-90">
+          <circle r={radius} fill="none" stroke="var(--border)" strokeWidth="22" />
+          {data.map((d, i) => {
+            const length = (d.value / total) * circumference;
+            const dasharray = `${length} ${circumference - length}`;
+            const seg = (
+              <circle
+                key={d.label}
+                r={radius}
+                fill="none"
+                stroke={palette[i % palette.length]}
+                strokeWidth="22"
+                strokeDasharray={dasharray}
+                strokeDashoffset={-offset}
+              />
+            );
+            offset += length;
+            return seg;
+          })}
+        </svg>
+
+        <ul className="flex-1 space-y-2 w-full">
+          {data.map((d, i) => (
+            <li key={d.label} className="flex items-center gap-3 text-sm">
+              <span
+                className="h-2.5 w-2.5 rounded-full shrink-0"
+                style={{ background: palette[i % palette.length] }}
+              />
+              <span className="text-foreground">{d.label}</span>
+              <span className="ml-auto font-mono text-xs text-muted-foreground">{d.value}%</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* Yearly performance bars */}
+      <div className="mt-6 pt-6 border-t border-border">
+        <div className="flex items-center justify-between mb-3">
+          <h4 className="text-sm text-foreground">Campaign performance</h4>
+          <span className="text-xs text-muted-foreground font-mono">ROAS index</span>
+        </div>
+        <div className="flex items-end gap-2 h-24">
+          {[55, 68, 72, 80, 76, 88, 92, 85, 95, 90, 98, 110].map((v, i) => (
+            <div key={i} className="flex-1 flex flex-col items-center gap-1">
+              <div
+                className="w-full rounded-sm bg-primary/80 hover:bg-primary transition"
+                style={{ height: `${(v / 110) * 100}%` }}
+              />
+              <span className="text-[10px] text-muted-foreground font-mono">
+                {["J","F","M","A","M","J","J","A","S","O","N","D"][i]}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
   );
 }
 
