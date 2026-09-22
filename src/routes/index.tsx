@@ -59,6 +59,27 @@ const collaborations: { name: string; icon: React.ComponentType<{ className?: st
   { name: "Digital Marketing Supervision", icon: Eye },
 ];
 
+const education = [
+  { degree: "BSc in CSE", school: "East West University", detail: "CGPA 3.43 / 4.00" },
+  { degree: "HSC", school: "Cambrian College", detail: "GPA 5.00" },
+  { degree: "SSC", school: "SOS Hermann Gmeiner School", detail: "GPA 5.00" },
+];
+
+const languages = [
+  { name: "English", detail: "Advanced — IELTS 7.0" },
+  { name: "Bangla", detail: "Native" },
+];
+
+const clients = [
+  "Dutch-Bangla Bank", "Eastern Bank Ltd.", "Simple Math", "Shanta Property Management",
+  "Butterfly", "Haier", "Abul Khair Group", "Radiant Care", "Emami", "Akij Bashir Glass",
+  "Time Zone", "DBH", "BYD", "Prerona", "Blue Diamond Almonds", "Meghna Insurance PLC",
+  "BRAC Nursery", "sheba.xyz", "Natura Care Limited", "Shah Cement", "Seylon Tea",
+  "Stella Sanitary Ware", "Marks Full Cream Milk Powder", "AMA Brazilian Coffee",
+  "Navana Furniture", "DHL", "Marks Active School", "Kinder", "Comely", "Navana Battery",
+  "Raxoll", "Asha Cement", "Starship Milk Powder", "Ujjwala Care", "Buy Here Now",
+];
+
 function Index() {
   return (
     <div className="min-h-screen text-foreground">
@@ -71,6 +92,7 @@ function Index() {
             <a href="#work" className="hover:text-foreground transition">Experience</a>
             <a href="#skills" className="hover:text-foreground transition">Skills</a>
             <a href="#collab" className="hover:text-foreground transition">Collaborate</a>
+            <a href="#clients" className="hover:text-foreground transition">Clients</a>
             <a href="#contact" className="hover:text-foreground transition">Contact</a>
           </nav>
           <a
@@ -148,9 +170,34 @@ function Index() {
               DV360, LinkedIn, Display, Programmatic and Rich Media.
             </p>
             <p className="text-foreground">
-              BSc in Computer Science from East West University. IELTS 7.0.
-              Currently based in Dhaka, Bangladesh.
+              BSc in Computer Science &amp; Engineering from East West University.
+              IELTS 7.0. Currently based in Dhaka, Bangladesh.
             </p>
+            <div className="grid sm:grid-cols-2 gap-8 pt-4">
+              <div>
+                <h3 className="font-display text-xl text-foreground mb-4">Education</h3>
+                <ul className="space-y-4 text-base">
+                  {education.map((ed) => (
+                    <li key={ed.degree}>
+                      <div className="text-foreground">{ed.degree}</div>
+                      <div className="text-sm text-primary">{ed.school}</div>
+                      <div className="text-sm text-muted-foreground font-mono">{ed.detail}</div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <h3 className="font-display text-xl text-foreground mb-4">Languages</h3>
+                <ul className="space-y-4 text-base">
+                  {languages.map((l) => (
+                    <li key={l.name}>
+                      <div className="text-foreground">{l.name}</div>
+                      <div className="text-sm text-muted-foreground">{l.detail}</div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -233,6 +280,24 @@ function Index() {
             })}
           </ul>
         </div>
+      </section>
+
+      {/* Clients */}
+      <section id="clients" className="max-w-6xl mx-auto px-6 py-20 border-t border-border">
+        <div className="flex items-end justify-between mb-10">
+          <h2 className="font-display text-3xl md:text-4xl">Brands I've worked with</h2>
+          <span className="text-sm text-muted-foreground font-mono">{clients.length}+ brands</span>
+        </div>
+        <ul className="flex flex-wrap gap-2">
+          {clients.map((c) => (
+            <li
+              key={c}
+              className="rounded-full border border-border bg-card/40 px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:border-primary/60 transition"
+            >
+              {c}
+            </li>
+          ))}
+        </ul>
       </section>
 
       {/* Contact */}
