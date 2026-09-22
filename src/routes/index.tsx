@@ -59,6 +59,27 @@ const collaborations: { name: string; icon: React.ComponentType<{ className?: st
   { name: "Digital Marketing Supervision", icon: Eye },
 ];
 
+const education = [
+  { degree: "BSc in CSE", school: "East West University", detail: "CGPA 3.43 / 4.00" },
+  { degree: "HSC", school: "Cambrian College", detail: "GPA 5.00" },
+  { degree: "SSC", school: "SOS Hermann Gmeiner School", detail: "GPA 5.00" },
+];
+
+const languages = [
+  { name: "English", detail: "Advanced — IELTS 7.0" },
+  { name: "Bangla", detail: "Native" },
+];
+
+const clients = [
+  "Dutch-Bangla Bank", "Eastern Bank Ltd.", "Simple Math", "Shanta Property Management",
+  "Butterfly", "Haier", "Abul Khair Group", "Radiant Care", "Emami", "Akij Bashir Glass",
+  "Time Zone", "DBH", "BYD", "Prerona", "Blue Diamond Almonds", "Meghna Insurance PLC",
+  "BRAC Nursery", "sheba.xyz", "Natura Care Limited", "Shah Cement", "Seylon Tea",
+  "Stella Sanitary Ware", "Marks Full Cream Milk Powder", "AMA Brazilian Coffee",
+  "Navana Furniture", "DHL", "Marks Active School", "Kinder", "Comely", "Navana Battery",
+  "Raxoll", "Asha Cement", "Starship Milk Powder", "Ujjwala Care", "Buy Here Now",
+];
+
 function Index() {
   return (
     <div className="min-h-screen text-foreground">
