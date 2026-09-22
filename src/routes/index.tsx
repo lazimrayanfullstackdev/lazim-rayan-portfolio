@@ -152,7 +152,7 @@ function Index() {
               <img src={portrait} alt="Portrait of Lazim Rayan" className="h-full w-full object-cover" />
             </div>
             <div className="absolute -bottom-4 -left-4 rounded-2xl border border-border bg-card/90 backdrop-blur px-4 py-3 text-sm shadow-xl">
-              <div className="font-display text-2xl text-primary leading-none">6+</div>
+              <div className="font-display text-2xl text-primary leading-none">7+</div>
               <div className="text-muted-foreground text-xs mt-1">years in digital</div>
             </div>
           </div>
