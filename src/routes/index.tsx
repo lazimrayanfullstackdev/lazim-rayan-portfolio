@@ -11,7 +11,7 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Lazim Rayan — Associate Manager, Media" },
-      { name: "description", content: "Results-driven digital marketer with 6+ years running campaigns on Meta, DV360, LinkedIn, Display, Programmatic & Rich Media." },
+      { name: "description", content: "Results-driven digital marketer with 7+ Years running campaigns on Meta, DV360, LinkedIn, Display, Programmatic & Rich Media." },
       { property: "og:title", content: "Lazim Rayan — Associate Manager, Media" },
       { property: "og:description", content: "Digital marketing & SEO specialist based in Dhaka." },
     ],
@@ -71,7 +71,7 @@ const languages = [
 ];
 
 const clients = [
-  "Dutch-Bangla Bank", "Eastern Bank Ltd.", "Simple Math", "Shanta Property Management",
+  "Dutch-Bangla Bank", "Eastern Bank Ltd.", "Shanta Property Management",
   "Butterfly", "Haier", "Abul Khair Group", "Radiant Care", "Emami", "Akij Bashir Glass",
   "Time Zone", "DBH", "BYD", "Prerona", "Blue Diamond Almonds", "Meghna Insurance PLC",
   "BRAC Nursery", "sheba.xyz", "Natura Care Limited", "Shah Cement", "Seylon Tea",
@@ -119,7 +119,7 @@ function Index() {
             </h1>
             <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed">
               Associate Manager, Media — building data-driven campaigns across
-              Meta, DV360, LinkedIn and programmatic for 6+ years.
+              Meta, DV360, LinkedIn and programmatic for 7+ years.
             </p>
             <div className="mt-8 font-display text-2xl md:text-4xl font-bold leading-snug">
               <span className="text-foreground">Let's connect for </span>

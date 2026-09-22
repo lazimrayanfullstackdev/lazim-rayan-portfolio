@@ -15,7 +15,7 @@ export default defineTool({
           name: "Lazim Rayan",
           role: "Associate Manager, Media",
           location: "Dhaka, Bangladesh",
-          bio: "Results-driven digital marketer with 6+ years running campaigns on Meta, DV360, LinkedIn, Display, Programmatic & Rich Media.",
+          bio: "Results-driven digital marketer with 7+ Years running campaigns on Meta, DV360, LinkedIn, Display, Programmatic & Rich Media.",
         }),
       },
     ],
