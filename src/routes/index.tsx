@@ -282,6 +282,24 @@ function Index() {
         </div>
       </section>
 
+      {/* Clients */}
+      <section id="clients" className="max-w-6xl mx-auto px-6 py-20 border-t border-border">
+        <div className="flex items-end justify-between mb-10">
+          <h2 className="font-display text-3xl md:text-4xl">Brands I've worked with</h2>
+          <span className="text-sm text-muted-foreground font-mono">{clients.length}+ brands</span>
+        </div>
+        <ul className="flex flex-wrap gap-2">
+          {clients.map((c) => (
+            <li
+              key={c}
+              className="rounded-full border border-border bg-card/40 px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:border-primary/60 transition"
+            >
+              {c}
+            </li>
+          ))}
+        </ul>
+      </section>
+
       {/* Contact */}
       <section id="contact" className="max-w-6xl mx-auto px-6 py-24 border-t border-border">
         <div className="grid md:grid-cols-2 gap-10 items-start">
