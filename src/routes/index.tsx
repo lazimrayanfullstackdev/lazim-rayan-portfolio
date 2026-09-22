@@ -170,9 +170,34 @@ function Index() {
               DV360, LinkedIn, Display, Programmatic and Rich Media.
             </p>
             <p className="text-foreground">
-              BSc in Computer Science from East West University. IELTS 7.0.
-              Currently based in Dhaka, Bangladesh.
+              BSc in Computer Science &amp; Engineering from East West University.
+              IELTS 7.0. Currently based in Dhaka, Bangladesh.
             </p>
+            <div className="grid sm:grid-cols-2 gap-8 pt-4">
+              <div>
+                <h3 className="font-display text-xl text-foreground mb-4">Education</h3>
+                <ul className="space-y-4 text-base">
+                  {education.map((ed) => (
+                    <li key={ed.degree}>
+                      <div className="text-foreground">{ed.degree}</div>
+                      <div className="text-sm text-primary">{ed.school}</div>
+                      <div className="text-sm text-muted-foreground font-mono">{ed.detail}</div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <h3 className="font-display text-xl text-foreground mb-4">Languages</h3>
+                <ul className="space-y-4 text-base">
+                  {languages.map((l) => (
+                    <li key={l.name}>
+                      <div className="text-foreground">{l.name}</div>
+                      <div className="text-sm text-muted-foreground">{l.detail}</div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </section>
