@@ -92,6 +92,7 @@ function Index() {
             <a href="#work" className="hover:text-foreground transition">Experience</a>
             <a href="#skills" className="hover:text-foreground transition">Skills</a>
             <a href="#collab" className="hover:text-foreground transition">Collaborate</a>
+            <a href="#clients" className="hover:text-foreground transition">Clients</a>
             <a href="#contact" className="hover:text-foreground transition">Contact</a>
           </nav>
           <a
